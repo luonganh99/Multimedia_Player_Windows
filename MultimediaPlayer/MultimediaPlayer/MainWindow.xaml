@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultimediaPlayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:NameConverter x:Key="converter"/>
+    </Window.Resources>
+    <Canvas>
+        <Button x:Name="addButton" Click="addButton_Click" Width="104" Height="40" Content="Browse" Canvas.Left="117" Canvas.Top="52" />
+        <Button x:Name="playButton" Click="playButton_Click" Width="104" Height="40" Content="Play" Canvas.Left="117" Canvas.Top="149"/>
+        <Button x:Name="pauseButton" Click="pauseButton_Click" Width="104" Height="40" Content="Pause" Canvas.Left="117" Canvas.Top="239"/>
+        <Button x:Name="stopButton" Click="stopButton_Click" Width="104" Height="40" Content="Stop" Canvas.Left="117" Canvas.Top="336"/>
+        <Button x:Name="removeButton" Click="removeButton_Click" Width="104" Height="40" Content="Remove" Canvas.Left="680" Canvas.Top="194"/>
+        <ListBox x:Name="playListBox" SelectionMode="Extended"  Width="325" Height="324" RenderTransformOrigin="4.782,2.107" Canvas.Left="330" Canvas.Top="52">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name, Converter={StaticResource converter}}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Remove" Click="Remove_Click"></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+    </Canvas>
 </Window>

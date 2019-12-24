@@ -1,0 +1,15 @@
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.csprojAssemblyReference.cache
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MainWindow.g.cs
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\App.g.cs
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer_MarkupCompile.cache
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer_MarkupCompile.lref
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\bin\Debug\MultimediaPlayer.exe.config
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\bin\Debug\MultimediaPlayer.exe
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\bin\Debug\MultimediaPlayer.pdb
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MainWindow.baml
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.g.resources
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.Properties.Resources.resources
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.csproj.GenerateResource.cache
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.exe
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\MultimediaPlayer.pdb
+G:\My Study\Windows\Project3_github\MultimediaPlayer\MultimediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
