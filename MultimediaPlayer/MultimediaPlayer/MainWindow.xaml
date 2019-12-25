@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MultimediaPlayer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Closed="Window_Closed">
     <Window.Resources>
         <local:NameConverter x:Key="converter"/>
     </Window.Resources>
@@ -16,6 +16,10 @@
         <Button x:Name="pauseButton" Click="pauseButton_Click" Width="104" Height="40" Content="Pause" Canvas.Left="117" Canvas.Top="239"/>
         <Button x:Name="stopButton" Click="stopButton_Click" Width="104" Height="40" Content="Stop" Canvas.Left="117" Canvas.Top="336"/>
         <Button x:Name="removeButton" Click="removeButton_Click" Width="104" Height="40" Content="Remove" Canvas.Left="680" Canvas.Top="194"/>
+        <Button x:Name="Repeat" Click="Repeat_Click" Width="104" Height="40" Content="Lặp lại" Canvas.Left="678" Canvas.Top="27"/>
+        <Button x:Name="Random" Click="Random_Click" Width="104" Height="40" Content="Ngẫu nhiên" Canvas.Left="678" Canvas.Top="96"/>
+        <Button x:Name="Save" Click="Save_Click" Width="104" Height="40" Content="Save" Canvas.Left="0" Canvas.Top="0"/>
+        <Button x:Name="Load" Click="Load_Click" Width="104" Height="40" Content="Load" Canvas.Left="0" Canvas.Top="67"/>
         <ListBox x:Name="playListBox" SelectionMode="Extended"  Width="325" Height="324" RenderTransformOrigin="4.782,2.107" Canvas.Left="330" Canvas.Top="52">
             <ListBox.ItemTemplate>
                 <DataTemplate>
