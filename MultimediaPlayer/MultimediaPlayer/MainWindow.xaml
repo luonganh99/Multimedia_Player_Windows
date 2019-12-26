@@ -5,18 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultimediaPlayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="780"
+        Loaded="Window_Loaded" Closed="Window_Closed">
     <Window.Resources>
         <local:NameConverter x:Key="converter"/>
     </Window.Resources>
-    <Canvas>
-        <Button x:Name="addButton" Click="addButton_Click" Width="104" Height="40" Content="Browse" Canvas.Left="117" Canvas.Top="52" />
-        <Button x:Name="playButton" Click="playButton_Click" Width="104" Height="40" Content="Play" Canvas.Left="117" Canvas.Top="149"/>
-        <Button x:Name="pauseButton" Click="pauseButton_Click" Width="104" Height="40" Content="Pause" Canvas.Left="117" Canvas.Top="239"/>
-        <Button x:Name="stopButton" Click="stopButton_Click" Width="104" Height="40" Content="Stop" Canvas.Left="117" Canvas.Top="336"/>
-        <Button x:Name="removeButton" Click="removeButton_Click" Width="104" Height="40" Content="Remove" Canvas.Left="680" Canvas.Top="194"/>
-        <ListBox x:Name="playListBox" SelectionMode="Extended"  Width="325" Height="324" RenderTransformOrigin="4.782,2.107" Canvas.Left="330" Canvas.Top="52">
+    <Canvas HorizontalAlignment="Left" Margin="0,0,-0.4,0">
+        <Image Source="imgs/logo.png" Height="192" Width="214" RenderOptions.BitmapScalingMode="HighQuality" Canvas.Left="-22" RenderTransformOrigin="0.437,0.198" Canvas.Top="-26"/>
+
+        <Button x:Name="playButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="playButton_Click" Canvas.Left="296" Canvas.Top="346" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/play-button.png" RenderOptions.BitmapScalingMode="HighQuality" Height="49" Width="77"/>
+            </StackPanel>
+        </Button>
+        <StackPanel Orientation="Horizontal" Canvas.Top="181" Canvas.Left="54" Background="#FF97F04D">
+            <Image Source="imgs/countdown.png" Width="20"/>
+            <Label x:Name="lbTime" FontSize="16px" Content="Time" RenderTransformOrigin="5.884,11.859" FontFamily="Segoe UI Semibold" Foreground="#FF080668" />
+        </StackPanel>
+        <Label x:Name="lbTimer" Content="" FontSize="25" RenderTransformOrigin="22.924,1.104" Canvas.Left="15" Canvas.Top="214" FontFamily="Segoe UI Semibold" Foreground="#FFF30653"/>
+        <Label x:Name="lbSong" FontFamily="Segoe UI Semibold" Foreground="Black" Canvas.Left="231" Canvas.Top="16" FontSize="12" Content=""/>
+        <Button x:Name="removeButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="removeButton_Click" Canvas.Left="36" Canvas.Top="344" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/trash.png" RenderOptions.BitmapScalingMode="HighQuality" Height="49" Width="77"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="pauseButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="pauseButton_Click" Canvas.Left="240" Canvas.Top="354" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/pause.png" RenderOptions.BitmapScalingMode="HighQuality" Height="39" Width="65"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="stopButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="stopButton_Click" Canvas.Left="364" Canvas.Top="354" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/stop.png" RenderOptions.BitmapScalingMode="HighQuality" Height="39" Width="65" RenderTransformOrigin="0.406,0.354"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Random" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="Random_Click" Canvas.Left="133" Canvas.Top="366" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/shuffle-arrows.png" RenderOptions.BitmapScalingMode="HighQuality" Height="29" Width="49" RenderTransformOrigin="0.406,0.354"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Repeat" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="Repeat_Click" Canvas.Left="483" Canvas.Top="365" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/repeat.png" RenderOptions.BitmapScalingMode="HighQuality" Height="29" Width="49" RenderTransformOrigin="0.406,0.354"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="nextButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="nextButton_Click" Canvas.Left="424" Canvas.Top="362" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/next.png" RenderOptions.BitmapScalingMode="HighQuality" Height="31" Width="54" RenderTransformOrigin="0.406,0.354"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="prevButton" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="prevButton_Click" Canvas.Left="186" Canvas.Top="362" RenderTransformOrigin="1.101,0.57" >
+            <StackPanel>
+                <Image Source="imgs/back.png" RenderOptions.BitmapScalingMode="HighQuality" Height="31" Width="54" RenderTransformOrigin="0.406,0.354"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Save" Click="Save_Click"  RenderTransformOrigin="0.295,-0.038" Canvas.Left="644" Canvas.Top="9" FontFamily="Segoe UI Semibold" Height="29" Width="108" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="imgs/save.png" Width="20" Height="20" Margin="0,0,10,0"/>
+                <TextBlock FontSize="16" Foreground="#FF3B0374">Save List</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Load" Click="Load_Click"  RenderTransformOrigin="0.295,-0.038" Canvas.Left="521" Canvas.Top="9" FontFamily="Segoe UI Semibold" Height="29" Width="108" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="imgs/file.png" Width="20" Height="20" Margin="0,0,10,0"/>
+                <TextBlock FontSize="16" Foreground="#FF3B0374">Load List</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="addButton" Click="addButton_Click"  RenderTransformOrigin="0.295,-0.038" Canvas.Left="593" Canvas.Top="312" FontFamily="Segoe UI Semibold" Height="29" Width="107" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="imgs/music.png" Width="20" Height="20" Margin="0,0,10,0"/>
+                <TextBlock FontSize="16" Foreground="#FF3B0374">Browse</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Label Content="Song: " Canvas.Left="183" Canvas.Top="14" FontFamily="Segoe UI Semibold" FontSize="14" Foreground="#FF21437D" Background="#FF82F197" Height="29" Width="49"/>
+
+        <StackPanel Canvas.Left="517" Canvas.Top="49" Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" Height="253" Width="241" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="imgs/lighthouse.png" Width="30" ></Image>
+                <Label Content="How To Use" FontFamily="Segoe UI Semibold" FontSize="18" Foreground="#FFE51212" FontWeight="Bold"/>
+            </StackPanel>
+            <TextBlock FontFamily="Segoe UI Semibold" Foreground="#FF8B5656" Margin="0.5,25,0.5,5">1. Press Browse Button to add music files</TextBlock>
+            <TextBlock  FontFamily="Segoe UI Semibold" Foreground="#FF8B5656" Margin="0.5,5">2. Choose one song from list and press Play <LineBreak/> Button</TextBlock>
+            <TextBlock  FontFamily="Segoe UI Semibold" Foreground="#FF8B5656" Margin="0.5,5"><Run Text="3.To pause and stop song press Pause,"/><LineBreak/><Run Text="Stop Button"/></TextBlock>
+            <TextBlock  FontFamily="Segoe UI Semibold" Foreground="#FF8B5656" Margin="0.5,5">4.To delete song from list, choose it and <LineBreak/> press Remove Button</TextBlock>
+            <TextBlock  FontFamily="Segoe UI Semibold" Foreground="#FF8B5656" Margin="0,5,0.8,5" HorizontalAlignment="Right" Width="240"><Run Text="5.To save and load list press Save and Load"/><LineBreak/><Run Text="Button"/></TextBlock>
+
+        </StackPanel>
+
+        <ListBox x:Name="playListBox" SelectionMode="Extended"  Width="326" Height="286" RenderTransformOrigin="4.782,2.107" Canvas.Left="181" Canvas.Top="49">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name, Converter={StaticResource converter}}"/>
