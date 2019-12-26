@@ -54,7 +54,6 @@ namespace MultimediaPlayer
             else
                 Title = "No file selected...";
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             playListBox.ItemsSource = _playList;
